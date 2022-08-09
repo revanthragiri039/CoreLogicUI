@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <div class="block">
+        <form [formGroup]="loginForm">
+            <h2 class="hed">LOGIN</h2>
+            <input type="text" formControlName="username" placeholder="User ID"
+                [ngClass]="loginForm.controls['username'].invalid&&submitted?'errors':'inp'" />
+            <input type="password" formControlName="password" placeholder="Password"
+                [ngClass]="loginForm.controls['password'].invalid&&submitted?'errors':'inp'" />
+            <div class="btns">
+                <button class="btnsub" type="submit" (click)="onLogin(loginForm)">Login</button>
+                <button class="btnclear" type="submit" (click)="Clear()">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<app-mainheader></app-mainheader>
+<br>
+
+<body>
+    <h1 style="font-weight:bold">Loan Dashboard</h1>
+    <br>
+    <div>
+        <form [formGroup]="searchloandetails">
+            <input type="text" formControlName="firstname" class="serchcls" placeholder="First Name">
+
+            <input type="text" formControlName="lastname" class="serchcls" placeholder="Last Name">
+
+            <input type="text" formControlName="loannumber" class="serchcls" placeholder="Loan Number">
+            
+            <button type="button" class="btnaddloan" (click)="searchLoandetails(searchloandetails)">Search</button>
+            <button type="button" class="btnaddloan" (click)="Clear()">Clear</button>
+        </form>
+    </div>
+    <button type="button" [hidden]="todisplay" class="btnaddloan" style="float: right" (click)="AddnewLoan()">Add New Loan</button>
+    <br>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th scope="col">LoanID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Loan Number</th>
+                <th scope="col">Property Address</th>
+                <th scope="col" [hidden]="todisplay">Actions</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="loanlist.data.length>0; else norecords">
+            <tr *ngFor="let x of loanlist.data">
+              <th scope="row">{{x.loanId}}</th>
+              <td>{{x.firstName}}</td>
+              <td>{{x.lastName}}</td>
+              <td>{{x.loanNumber}}</td>
+              <td>{{x.propertyAddress}}</td>
+              <td [hidden]="todisplay">
+                    <span style="font-size: 20px;width: 100px;margin-right: 8px;">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" (click)="EditLoan(x.loanId)"></i> 
+                    </span>
+                    <span style="font-size: 20px;">
+                        <i class="fa fa-trash" aria-hidden="true" title="Delete" (click)="DeleteLoan(x.loanId)"></i>
+                    </span>
+              </td>
+            </tr>
+        </tbody>
+        <ng-template #norecords>
+           <h2 style="text-align: center;margin-right: -502%;"> No data available.</h2>
+          </ng-template>
+    </table>
+
+    
+</body>
