@@ -1,15 +1,25 @@
-<div class="wrapper">
-    <div class="block">
-        <form [formGroup]="loginForm">
-            <h2 class="hed">LOGIN</h2>
-            <input type="text" formControlName="username" placeholder="User ID"
+<!-- <div class="wrapper"> -->
+    <!-- <div class="block"> -->
+        <div class="login-form">
+            <form [formGroup]="loginForm">
+              <h2>Login</h2>
+              <div class="content">
+                <div class="input-field">
+                  <input type="text" formControlName="username" placeholder="Username" autocomplete="true"
                 [ngClass]="loginForm.controls['username'].invalid&&submitted?'errors':'inp'" />
-            <input type="password" formControlName="password" placeholder="Password"
-                [ngClass]="loginForm.controls['password'].invalid&&submitted?'errors':'inp'" />
-            <div class="btns">
-                <button class="btnsub" type="submit" (click)="onLogin(loginForm)">Login</button>
+                </div>
+                <div class="input-field">
+                    <input type="password" formControlName="password" placeholder="Password"
+                    [ngClass]="loginForm.controls['password'].invalid&&submitted?'errors':'inp'" />
+                </div>
+                <a href="#" class="link">Forgot Your Password?</a>
+                
+              </div>
+              <div class="action">
+                <button class="btnsub" type="submit" (click)="onLogin(loginForm)">Login <i class="fa fa-key icon"></i></button>
                 <button class="btnclear" type="submit" (click)="Clear()">Clear</button>
-            </div>
-        </form>
-    </div>
-</div>
+              </div>
+            </form>
+          </div>
+    <!-- </div> -->
+<!-- </div> -->

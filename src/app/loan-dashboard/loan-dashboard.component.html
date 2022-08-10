@@ -1,22 +1,26 @@
 <app-mainheader></app-mainheader>
-<br>
-
+<br><br><br><br>
 <body>
-    <h1 style="font-weight:bold">Loan Dashboard</h1>
+    <h1 style="font-weight: bold;font-family: sans-serif;font-size: 26px;">Loan Details</h1>
     <br>
     <div>
         <form [formGroup]="searchloandetails">
-            <input type="text" formControlName="firstname" class="serchcls" placeholder="First Name">
+            <div class="input-field">
+                <input type="text" formControlName="firstname" class="input-fm" placeholder="First Name">
 
-            <input type="text" formControlName="lastname" class="serchcls" placeholder="Last Name">
+                <input type="text" formControlName="lastname" class="input-fm" placeholder="Last Name">
 
-            <input type="text" formControlName="loannumber" class="serchcls" placeholder="Loan Number">
-            
-            <button type="button" class="btnaddloan" (click)="searchLoandetails(searchloandetails)">Search</button>
-            <button type="button" class="btnaddloan" (click)="Clear()">Clear</button>
+                <input type="text" formControlName="loannumber" class="input-fm" placeholder="Loan Number">
+
+                <i class="fa fa-search" (click)="searchLoandetails(searchloandetails)"></i>
+                <!-- <button type="button" class="btnaddloan" (click)="Clear()"><i class="fa fa-brush"></i></button> -->
+                <img src="assets/images/clear-icon.png" class="btnimgclear" (click)="Clear()" />
+            </div>
         </form>
     </div>
-    <button type="button" [hidden]="todisplay" class="btnaddloan" style="float: right" (click)="AddnewLoan()">Add New Loan</button>
+    <!-- <button type="button" [hidden]="todisplay" class="btnaddloan" style="float: right" (click)="AddnewLoan()">Add New Loan</button> -->
+    <img src="assets/images/plus-icon.png" [hidden]="todisplay" class="btnimgadd" style="float: right"
+        (click)="AddnewLoan()" />
     <br>
     <table class="content-table">
         <thead>
@@ -31,25 +35,28 @@
         </thead>
         <tbody *ngIf="loanlist.data.length>0; else norecords">
             <tr *ngFor="let x of loanlist.data">
-              <th scope="row">{{x.loanId}}</th>
-              <td>{{x.firstName}}</td>
-              <td>{{x.lastName}}</td>
-              <td>{{x.loanNumber}}</td>
-              <td>{{x.propertyAddress}}</td>
-              <td [hidden]="todisplay">
+                <th scope="row">{{x.loanId}}</th>
+                <td>{{x.firstName}}</td>
+                <td>{{x.lastName}}</td>
+                <td>{{x.loanNumber}}</td>
+                <td>{{x.propertyAddress}}</td>
+                <td [hidden]="todisplay">
                     <span style="font-size: 20px;width: 100px;margin-right: 8px;">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" (click)="EditLoan(x.loanId)"></i> 
+                        <i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit"
+                            (click)="EditLoan(x.loanId)"></i>
                     </span>
                     <span style="font-size: 20px;">
                         <i class="fa fa-trash" aria-hidden="true" title="Delete" (click)="DeleteLoan(x.loanId)"></i>
                     </span>
-              </td>
+                </td>
             </tr>
         </tbody>
         <ng-template #norecords>
-           <h2 style="text-align: center;margin-right: -502%;"> No data available.</h2>
-          </ng-template>
+            <h2
+                style="text-align: center;margin-right: -502%;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                No Loan Details Available.</h2>
+        </ng-template>
     </table>
 
-    
+
 </body>
