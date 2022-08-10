@@ -60,10 +60,10 @@ export class AddLoanComponent implements OnInit {
         this.addLoanForm.reset({});
         this.submitted = false;
         Swal.fire("Loan Details", 'Added successfully', 'success').then(a => {
-          this._router.navigate(['/LoanDashboard']);
+          this._router.navigate(['/loanDashboard']);
         });
       }, (error => {
-        Swal.fire("Loan Details", error, 'error').then(a => {
+        Swal.fire("Loan Creation Failed", error, 'error').then(a => {
         });
       }));
     }
@@ -93,7 +93,7 @@ export class AddLoanComponent implements OnInit {
         this.addLoanForm.reset({});
         this.submitted = false;
         Swal.fire("Loan Details", 'Updated successfully', 'success').then(a => {
-          this._router.navigate(['/LoanDashboard']);
+          this._router.navigate(['/loanDashboard']);
         });
       }, (error => {
         Swal.fire("Loan Details", error, 'error').then(a => {

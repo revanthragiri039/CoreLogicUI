@@ -1,18 +1,25 @@
-<app-mainheader></app-mainheader>
-<br>
-<div class="wrapper">
-   <div class="block">
-     <form [formGroup]="addLoanForm">
-        <h2 class="hed">{{hedValue}}</h2>
-        <input type="text" formControlName="firstname" placeholder="First Name" [ngClass]="addLoanForm.controls['firstname'].invalid&&submitted?'errors':'inp'" />
-        <input type="text" formControlName="lastname" placeholder="Last Name" [ngClass]="addLoanForm.controls['lastname'].invalid&&submitted?'errors':'inp'" />
-        <input type="text" formControlName="loannumber" placeholder="Loan Number" [ngClass]="addLoanForm.controls['loannumber'].invalid&&submitted?'errors':'inp'" />
-        <input type="text" formControlName="propertyaddress" placeholder="Property Address" [ngClass]="addLoanForm.controls['propertyaddress'].invalid&&submitted?'errors':'inp'" />
-        <div class="btns">
-           <button class="btnsub" type="submit" (click)="AddLoan(addLoanForm)" [hidden]="toAdddisplay">Add Loan</button>
-           <button class="btnsub" type="submit" (click)="UpdateLoan(addLoanForm)" [hidden]="toUpdatedisplay">Update Loan</button>
-           <button class="btnclear" type="submit" (click)="clear()">Clear</button>
-        </div>
-     </form>
-   </div>
+<div class="add-form">
+   <form [formGroup]="addLoanForm"> 
+      <div>
+         <a routerLink="/loanDashboard">Back to Loan Dashboard</a>
+      </div>     
+      <div class="content">
+         <h2 class="hed">{{hedValue}}</h2>
+         <div class="input-field">
+            <input type="text" formControlName="firstname" placeholder="First Name"
+               [ngClass]="addLoanForm.controls['firstname'].invalid&&submitted?'errors':'inp'" />
+            <input type="text" formControlName="lastname" placeholder="Last Name"
+               [ngClass]="addLoanForm.controls['lastname'].invalid&&submitted?'errors':'inp'" />
+            <input type="text" formControlName="loannumber" placeholder="Loan Number"
+               [ngClass]="addLoanForm.controls['loannumber'].invalid&&submitted?'errors':'inp'" />
+            <input type="text" formControlName="propertyaddress" placeholder="Property Address"
+               [ngClass]="addLoanForm.controls['propertyaddress'].invalid&&submitted?'errors':'inp'" />
+         </div>
+      </div>
+      <div class="action">
+         <button type="submit" (click)="AddLoan(addLoanForm)" [hidden]="toAdddisplay">Add Loan</button>
+         <button type="submit" (click)="UpdateLoan(addLoanForm)" [hidden]="toUpdatedisplay">Update Loan</button>
+         <button type="submit" (click)="clear()">Clear</button>
+      </div>
+   </form>
 </div>

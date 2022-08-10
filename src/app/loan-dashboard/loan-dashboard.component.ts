@@ -47,7 +47,7 @@ export class LoanDashboardComponent implements OnInit {
 
   EditLoan(Id:any)
   { 
-   this._router.navigate(['/UpdateLoan',Id]);
+   this._router.navigate(['/updateLoan',Id]);
   }
 
   DeleteLoan(Id:any)

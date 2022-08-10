@@ -46,13 +46,13 @@ export class LoginComponent implements OnInit {
        if(this.loginresponse.success==true)
        {
         localStorage.setItem('Role',this.loginresponse.data.role);
-        this.route.navigate(['/LoanDashboard']);
+        this.route.navigate(['/loanDashboard']);
        }
        else{
-         Swal.fire('Loan Application','UserName or Password Incorrect!!','error');
+         Swal.fire('Login Failed','UserName or Password Incorrect!!','error');
        }
       },(error)=>{
-        Swal.fire("Loan Application!!",error,'error');
+        Swal.fire("Login Failed!!",error,'error');
       });
       
     }

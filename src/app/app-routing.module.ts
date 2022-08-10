@@ -8,13 +8,13 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {path:'',component:AppComponent,children:[{path:'',component:LoginComponent}]},
-  {path:'addLoan',component:AddLoanComponent},
-  {path:'UpdateLoan/:id',component:AddLoanComponent},
-  {path:'LoanDashboard',component:LoanDashboardComponent},
-  {path:'header',component:MainheaderComponent},
-  {path:'login',component:LoginComponent},
-  {path:"**",component:PageNotFoundComponent}
+  { path: '', component: AppComponent, children: [{ path: '', component: LoginComponent }] },
+  { path: 'addLoan', component: AddLoanComponent },
+  { path: 'updateLoan/:id', component: AddLoanComponent },
+  { path: 'loanDashboard', component: LoanDashboardComponent },
+  { path: 'header', component: MainheaderComponent },
+  { path: 'login', component: LoginComponent },
+  { path: "**", component: PageNotFoundComponent }
 ];
 
 @NgModule({
