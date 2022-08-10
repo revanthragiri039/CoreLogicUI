@@ -4,6 +4,19 @@ body{
   background-color: #f4f6ff;
 }
 
+.inp{
+  width: 83%;
+  padding: 10px 15px;
+  margin: 10px;
+}
+
+.errors{
+  border-bottom: 1px solid red!important;
+  width: 83%;
+  padding: 10px 15px;
+  margin: 10px;
+}
+
 .login-form {
     background: #fff;
     width: 500px;

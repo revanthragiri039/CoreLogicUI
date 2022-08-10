@@ -26,7 +26,7 @@
 }
 
 .errors{
-    border: 2px solid red;
+    border-bottom: 1px solid red!important;
     width: 83%;
     padding: 10px 15px;
     margin: 10px;

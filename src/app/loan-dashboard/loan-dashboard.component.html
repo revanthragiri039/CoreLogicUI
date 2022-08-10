@@ -1,7 +1,7 @@
 <app-mainheader></app-mainheader>
 <br><br><br><br>
 <body>
-    <h1 style="font-weight: bold;font-family: sans-serif;font-size: 26px;">Loan Details</h1>
+    <h1 style="font-weight: bold;font-family: sans-serif;font-size: 24px;">Search Loan Details</h1>
     <br>
     <div>
         <form [formGroup]="searchloandetails">
@@ -12,17 +12,19 @@
 
                 <input type="text" formControlName="loannumber" class="input-fm" placeholder="Loan Number">
 
-                <i class="fa fa-search" (click)="searchLoandetails(searchloandetails)"></i>
+                <i class="fa fa-search" (click)="searchLoandetails(searchloandetails)" title="Search Loan"></i>
                 <!-- <button type="button" class="btnaddloan" (click)="Clear()"><i class="fa fa-brush"></i></button> -->
-                <img src="assets/images/clear-icon.png" class="btnimgclear" (click)="Clear()" />
+                <img src="assets/images/clear-icon.png" class="btnimgclear" (click)="Clear()" title="Clear" />
             </div>
         </form>
     </div>
     <!-- <button type="button" [hidden]="todisplay" class="btnaddloan" style="float: right" (click)="AddnewLoan()">Add New Loan</button> -->
     <img src="assets/images/plus-icon.png" [hidden]="todisplay" class="btnimgadd" style="float: right"
         (click)="AddnewLoan()" />
+    <br>    
+    <h2 style="font-weight: bold;font-family: sans-serif;font-size: 24px;" *ngIf="showorhidetable">Loan Details</h2>
     <br>
-    <table class="content-table">
+    <table class="content-table" *ngIf="showorhidetable">
         <thead>
             <tr>
                 <th scope="col">LoanID</th>
